@@ -101,7 +101,7 @@ class Image
         }
 
         $clone = clone $this;
-        $clone->backgroundColor = $backgroundColor;
+        $clone->background = $backgroundColor;
 
         return $clone;
     }
@@ -136,12 +136,12 @@ class Image
     {
         $parts = [
             'size' => $this->width.'x'.($this->height ?? $this->width),
-            'background' => $this->backgroundColor,
+            'background' => $this->background,
             'color' => $this->color,
         ];
 
         // we must have a background color if we want to set a text color
-        if (! is_null($this->color) && is_null($this->backgroundColor)) {
+        if (! is_null($this->color) && is_null($this->background)) {
             $parts['background'] = 'ccc';
         }
 
